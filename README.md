@@ -20,9 +20,9 @@ An easy implementation of transformer using pytorch 2.3.0 and torchtext 0.18.0
 需要对torch相关库的内容进行一定修改，可通过VS Code跳转修改，Linux用户可通过vim修改。
 - `vim /home/*user*/miniconda3/envs/Transformer/lib/python3.10/site-packages/torch/utils/data/datapipes/utils/common.py`
 
-在`from torch.utils._import_utils import dill_available`后换行添加`DILL_AVAILABLE = dill_available()`
+在`from torch.utils._import_utils import dill_available`后换行添加`DILL_AVAILABLE = dill_available()`（详见[https://stackoverflow.com/questions/78537817/importerror-cannot-import-name-dill-available](https://stackoverflow.com/questions/78537817/importerror-cannot-import-name-dill-available)）
 - `vim /home/*user*/miniconda3/envs/Transformer/lib/python3.10/site-packages/torchtext/datasets/multi30k.py`
-修改`URL MD5 _PREFIX`为如下内容：
+修改`URL MD5 _PREFIX`为如下内容（详见[https://github.com/pytorch/text/issues/1756](https://github.com/pytorch/text/issues/1756)）：
 
 ```
 URL = {
