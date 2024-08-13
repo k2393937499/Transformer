@@ -1,5 +1,6 @@
 import torchtext; torchtext.disable_torchtext_deprecation_warning()
 
+import os
 import spacy
 import torch
 import torchtext.datasets as datasets
@@ -15,8 +16,17 @@ from train_eval_utils import train_one_epoch, val_one_epoch
 def yield_tokens(iter, tokenizer, index):
     for text in iter:
         yield [token.text for token in tokenizer.tokenizer(text[index])]
-spacy_de = spacy.load("de_core_news_sm")
-spacy_en = spacy.load("en_core_web_sm")
+try:
+    spacy_de = spacy.load("de_core_news_sm")
+except IOError:
+    os.system("python -m spacy download de_core_news_sm")
+    spacy_de = spacy.load("de_core_news_sm")
+
+try:
+    spacy_en = spacy.load("en_core_web_sm")
+except IOError:
+    os.system("python -m spacy download en_core_web_sm")
+    spacy_en = spacy.load("en_core_web_sm")
 train, val, test = datasets.Multi30k(language_pair=("de", "en"))
 src_vocab = build_vocab_from_iterator(yield_tokens(train+val+test, spacy_de, 0), specials=["<s>", "</s>", "<blank>", "<unk>"], min_freq=2)
 tgt_vocab = build_vocab_from_iterator(yield_tokens(train+val+test, spacy_en, 1), specials=["<s>", "</s>", "<blank>", "<unk>"], min_freq=2)
