@@ -44,6 +44,18 @@ _PREFIX = {
 }
 ```
 
+## 文件结构
+```
+  ├── saves: 权重保存路径
+  ├── dataset.py: 自定义dataset读取Multi30k数据集
+  ├── draw.py: 读取日志绘制loss与bleu曲线
+  ├── loss.py: Loss计算模块
+  ├── model.py: Transformer模型代码
+  ├── test.py: 测试权重的表现，包括loss、bleu以及翻译示例
+  ├── train_eval_utils.py: 训练、验证的依赖
+  └── train.py: 训练权重需要的脚本
+```
+
 ## 快速开始
 - 使用`python train.py`进行训练，权重会被保存到`saves/`路径，日志将保存到根目录，日志内容包括每一代的loss以及bleu分数
 - 使用`python test.py`查看模型在测试集的表现以及翻译示例
