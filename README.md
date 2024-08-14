@@ -1,8 +1,6 @@
 # Transformer
-An easy implementation of transformer using pytorch 2.3.0 and torchtext 0.18.0
-
-## 该项目主要参考了以下仓库
-- [https://github.com/harvardnlp/annotated-transformer/](https://github.com/harvardnlp/annotated-transformer/)
+Transformer: An Easy Implementation of Transformer Using Pytorch 2.3.0 and Torchtext 0.18.0
+[EN_ver](README_EN.md)
 
 ## 项目特点
 - 优化Annotated Transformer项目的结构，便于学习Transformer各模块的实现
@@ -65,3 +63,6 @@ _PREFIX = {
 - 训练的batchsize可自行在加载数据集代码（例如`train_dataloader = DataLoader(train_data, batch_size=16)`）中进行修改
 - 计算bleu分数使用Hugging Face的evaluate库实现，其中计算bleu的模块需要联网加载，打开加速器以保证加载正常进行（详见[https://huggingface.co/spaces/evaluate-metric/bleu](https://huggingface.co/spaces/evaluate-metric/bleu)）
 - 该项目训练得到的权重与Annotated Transformer项目`AnnotatedTransformer.ipynb`文件训练得到的权重是可以共享的，可以结合两个项目进行学习
+
+## 该项目主要参考了以下仓库
+- [https://github.com/harvardnlp/annotated-transformer/](https://github.com/harvardnlp/annotated-transformer/)
