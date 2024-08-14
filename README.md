@@ -1,6 +1,8 @@
 # Transformer
 Transformer: An Easy Implementation of Transformer Using Pytorch 2.3.0 and Torchtext 0.18.0
+
 [EN_ver](README_EN.md)
+
 [视频链接](https://www.bilibili.com/video/BV1ZPepeMER9)
 
 ## 项目特点
