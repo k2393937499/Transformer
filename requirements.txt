@@ -2,5 +2,5 @@ torch==2.3.0+cu121
 torchtext==0.18.0
 torchdata==0.7.1
 spacy==3.7.4
-evaluate==0.4.1
+evaluate==0.4.3
 portalocker>=2.0.0
